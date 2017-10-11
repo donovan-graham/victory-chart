@@ -7,13 +7,13 @@ module.exports = {
   devServer: {
     port: 8080,
     host: '0.0.0.0',
-    disableHostCheck: true,
+    disableHostCheck: true
   },
   // entry: path.join(srcPath, 'js', 'client.js'),
-  entry: path.join(srcPath, 'js', 'repayment.js'),
+  entry: ['babel-polyfill', 'whatwg-fetch', path.join(srcPath, 'js', 'app.js')],
   output: {
     path: buildPath,
-    filename: 'bundle.js',
+    filename: 'bundle.js'
   },
   module: {
     loaders: [
@@ -23,8 +23,9 @@ module.exports = {
         loader: 'babel',
         query: {
           presets: ['react', 'es2015'],
-        },
-      },
-    ],
-  },
+          plugins: ['transform-async-to-generator']
+        }
+      }
+    ]
+  }
 };

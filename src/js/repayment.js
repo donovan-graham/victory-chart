@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { extent, min, max } from 'd3-array';
 import {
   VictoryChart,
@@ -13,7 +12,7 @@ import {
   VictoryLegend,
   VictoryLabel,
   VictoryTooltip,
-  Line,
+  Line
 } from 'victory';
 
 import ds from './amortisation-data';
@@ -34,7 +33,7 @@ const domain = {
 
 const domain = {
   x: [1, data.length],
-  y: [0, data[0][loanRepayment]],
+  y: [0, data[0][loanRepayment]]
 };
 
 // const yearly = (val, max, acc = []) => {
@@ -83,13 +82,13 @@ const cumulativeDomain = {
   y: [
     0,
     cumulativeData[cumulativeData.length - 1][interestCharged] +
-      cumulativeData[cumulativeData.length - 1][capitalRepaid],
-  ],
+      cumulativeData[cumulativeData.length - 1][capitalRepaid]
+  ]
 };
 
 const repaymentDomain = {
   x: [1, data.length],
-  y: [0, data[0][openingBalance]],
+  y: [0, data[0][openingBalance]]
 };
 
 const interpolation = 'linear'; // 'catmullRom'
@@ -101,7 +100,7 @@ const axisStyle = {
   axisLabel: { fontSize: 14, padding: 25 },
   grid: { stroke: '#efefef', strokeDasharray: '1,1' },
   ticks: { stroke: '#756f6a', size: 5 },
-  tickLabels: { fontSize: '10px', padding: 5 },
+  tickLabels: { fontSize: '10px', padding: 5 }
 };
 
 const colorScale = ['red', 'blue'];
@@ -266,6 +265,3 @@ const Chart = () => {
 };
 
 export default Chart;
-
-const app = document.getElementById('app');
-ReactDOM.render(<Chart />, app);
